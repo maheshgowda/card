@@ -1,0 +1,10 @@
+<div class="panel-body">
+  <div class="form-group greetingcards_rule_greetingcards">
+    <%= label_tag "#{param_prefix}_greetingcard_ids_string", Spree.t('greetingcard_rule.choose_greetingcards') %>
+    <%= hidden_field_tag "#{param_prefix}[greetingcard_ids_string]", promotion_rule.greetingcard_ids.join(","), :class => "greetingcard_picker" %>
+  </div>
+  <div class="form-group no-marginb">
+    <%= label_tag Spree.t('greetingcard_rule.label') %>
+    <%= select_tag("#{param_prefix}[preferred_match_policy]", options_for_select(Spree::Promotion::Rules::Greetingcard::MATCH_POLICIES.map{|s| [Spree.t("greetingcard_rule.match_#{s}"),s] }, promotion_rule.preferred_match_policy), {:class => 'select_greetingcard form-control'}) %>
+  </div>
+</div>
